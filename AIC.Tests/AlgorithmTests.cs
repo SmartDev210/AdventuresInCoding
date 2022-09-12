@@ -23,7 +23,7 @@ namespace AIC.Functionality.Tests
         [Fact]
         public void CalculateFibonacciSequence()
         {
-            var results = FibonacciSequence.fibonacci(1);
+            var results = FibonacciSequence.fibonacci(10);
 
             Assert.Equal(34, results[^1]);
         }

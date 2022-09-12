@@ -8,20 +8,39 @@ using System.Threading.Tasks;
 namespace AIC.Refactoring
 {
     public static class CreatureFactory
-    {
+    { 
         public static object? AdoptACreature(string creatureName)
         {
+            var creatureMap = new Dictionary<string, Type>();
+            creatureMap["dragon"] = typeof(Dragon);
+            creatureMap["unicorn"] = typeof(Unicorn);
+            
             if (creatureName == null)
             {
                 return default;
             }
-            else if (creatureName == "dragon")
+            else if (creatureMap.ContainsKey(creatureName))
             {
-                return new Dragon();
+                return Activator.CreateInstance(creatureMap[creatureName]);
+            }            
+            else
+            {
+                return new Creature();
             }
-            else if (creatureName == "unicorn")
+        }
+        public static object? AdoptACreature_New(string creatureName)
+        {
+            var creatureMap = new Dictionary<string, Type>();
+            creatureMap["dragon"] = typeof(Dragon);
+            creatureMap["unicorn"] = typeof(Unicorn);
+
+            if (creatureName == null)
             {
-                return new Unicorn();
+                return default;
+            }
+            else if (creatureMap.ContainsKey(creatureName))
+            {
+                return Activator.CreateInstance(creatureMap[creatureName]);
             }
             else
             {

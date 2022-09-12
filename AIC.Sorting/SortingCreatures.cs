@@ -16,7 +16,12 @@ namespace AIC.Sorting
 
         public void SortDragonsByName()
         {
-            throw new NotImplementedException();
+            Dragons.Sort(CompareByName);
+        }
+
+        public static int CompareByName(Dragon dragon1, Dragon dragon2)
+        {
+            return string.Compare(dragon1.Name, dragon2.Name);
         }
     }
 }

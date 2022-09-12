@@ -11,7 +11,7 @@ namespace AIC.Sorting.Testing
             creatures.SortDragonsByName();
 
             Assert.Equal("Aaronarra", creatures.Dragons[0].Name);
-            Assert.Equal("Umbraxakar", creatures.Dragons[^0].Name);
+            Assert.Equal("Umbraxakar", creatures.Dragons[^1].Name);
         }
     }
 }
